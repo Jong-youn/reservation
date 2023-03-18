@@ -1,4 +1,4 @@
-package com.jay.seoul;
+package seoul;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
