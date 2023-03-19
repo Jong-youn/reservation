@@ -27,6 +27,7 @@ public class UserController {
                 .account(request.getAccount())
                 .name(request.getName())
                 .password(request.getPassword())
+                .passwordCheck(request.getPasswordCheck())
                 .phoneNumber(request.getPhoneNumber())
                 .createdAt(LocalDateTime.now(ZoneId.of("Asia/Seoul")))
                 .build();
