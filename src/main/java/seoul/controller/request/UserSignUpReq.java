@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 public class UserSignUpReq {
@@ -23,4 +25,6 @@ public class UserSignUpReq {
 
     @NotBlank
     private String phoneNumber;
+
+    private LocalDateTime createdAt;
 }

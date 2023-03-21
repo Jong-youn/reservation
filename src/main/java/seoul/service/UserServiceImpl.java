@@ -3,7 +3,7 @@ package seoul.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import seoul.model.entity.User;
+import seoul.mapper.UserMapper;
 import seoul.model.repository.UserRepository;
 import seoul.service.dto.UserDto;
 
@@ -13,22 +13,16 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository repository;
     private final PasswordEncoder encoder;
+    private final UserMapper mapper;
 
 
     @Override
     public void signUp(UserDto user) {
         validateUserInfo(user);
         String encodedPassword = encoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
 
-        User entity = User.builder()
-                .account(user.getAccount())
-                .password(encodedPassword)
-                .name(user.getName())
-                .phoneNumber(user.getPhoneNumber())
-                .createdAt(user.getCreatedAt())
-                .updatedAt(user.getCreatedAt()).build();
-
-        repository.signUp(entity);
+        repository.signUp(mapper.toEntity(user));
     }
 
     private void validateUserInfo(UserDto user) {

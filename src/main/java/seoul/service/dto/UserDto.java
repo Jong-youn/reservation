@@ -1,14 +1,11 @@
 package seoul.service.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Builder
 public class UserDto {
 
     private String account;
